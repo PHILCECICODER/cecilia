@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cecília — a campeã da casa</title>
+<meta name="description" content="Uma homenagem do papai Phelipe para Cecília.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Nunito:wght@400;600;700;800&family=Patrick+Hand&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --sky:#EAF6FB;
+    --sky-deep:#CDEBF6;
+    --sun:#FFC93C;
+    --sun-deep:#F5A623;
+    --coral:#FF6F61;
+    --ink:#233045;
+    --belt-white:#F7F7F2;
+    --belt-yellow:#FFD23F;
+    --belt-orange:#FF8C3B;
+    --belt-green:#4CAF7D;
+    --paper:#FFFFFF;
+    --radius:20px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{animation-duration:0.001ms !important; transition-duration:0.001ms !important;}
+  }
+  body{
+    margin:0;
+    background:var(--sky);
+    color:var(--ink);
+    font-family:'Nunito', system-ui, sans-serif;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3{
+    font-family:'Baloo 2', system-ui, sans-serif;
+    margin:0;
+    color:var(--ink);
+  }
+  a{color:var(--coral);}
+  a:focus-visible, button:focus-visible{
+    outline:3px solid var(--sun-deep);
+    outline-offset:3px;
+    border-radius:6px;
+  }
+  .wrap{max-width:960px; margin:0 auto; padding:0 24px;}
+  .eyebrow{
+    font-family:'Baloo 2', sans-serif;
+    font-weight:700;
+    font-size:0.85rem;
+    letter-spacing:0.06em;
+    text-transform:uppercase;
+    color:var(--coral);
+  }
+
+  /* -------- decorative chick doodle -------- */
+  .chick-dot{display:inline-block; vertical-align:middle;}
+
+  /* -------- HERO -------- */
+  header.hero{
+    position:relative;
+    padding:88px 0 90px;
+    overflow:hidden;
+    background:
+      radial-gradient(circle at 12% 20%, rgba(255,201,60,0.35), transparent 40%),
+      radial-gradient(circle at 88% 75%, rgba(255,111,97,0.25), transparent 45%),
+      var(--sky);
+  }
+  .hero-grid{
+    display:grid;
+    grid-template-columns:1.1fr 0.9fr;
+    gap:48px;
+    align-items:center;
+  }
+  @media (max-width:780px){ .hero-grid{grid-template-columns:1fr;} }
+  h1.title{
+    font-size:clamp(2.6rem, 6vw, 4.4rem);
+    line-height:1;
+    color:var(--coral);
+    text-shadow:3px 3px 0 rgba(255,255,255,0.6);
+  }
+  .title small{
+    display:block;
+    font-family:'Baloo 2', sans-serif;
+    font-size:1.3rem;
+    color:var(--ink);
+    margin-top:10px;
+  }
+  .hero-lede{
+    margin-top:22px;
+    font-size:1.15rem;
+    max-width:48ch;
+  }
+  .hero-photo{
+    position:relative;
+    border-radius:var(--radius);
+    overflow:hidden;
+    border:6px solid var(--paper);
+    box-shadow:0 18px 40px rgba(35,48,69,0.18);
+    transform:rotate(-2deg);
+  }
+  .hero-photo img{display:block; width:100%; height:auto;}
+  .belt-tag{
+    position:absolute; bottom:14px; left:14px;
+    background:var(--belt-yellow);
+    color:var(--ink);
+    font-family:'Baloo 2', sans-serif;
+    font-weight:700;
+    font-size:0.8rem;
+    padding:6px 14px;
+    border-radius:999px;
+    box-shadow:0 4px 10px rgba(0,0,0,0.15);
+  }
+
+  /* -------- SECTIONS -------- */
+  section{padding:70px 0;}
+  .section-intro{max-width:60ch; margin-top:12px; font-size:1.05rem;}
+
+  /* -------- BELT TIMELINE (about her) -------- */
+  .belt-track{
+    margin-top:44px;
+    display:flex;
+    border-radius:999px;
+    overflow:hidden;
+    height:14px;
+    box-shadow:inset 0 0 0 3px var(--paper);
+  }
+  .belt-seg{flex:1;}
+  .belt-labels{
+    display:flex;
+    justify-content:space-between;
+    margin-top:10px;
+    font-family:'Baloo 2', sans-serif;
+    font-weight:600;
+    font-size:0.8rem;
+    color:var(--ink);
+    opacity:0.75;
+  }
+  .about-grid{
+    margin-top:40px;
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:22px;
+  }
+  @media (max-width:780px){ .about-grid{grid-template-columns:1fr;} }
+  .about-card{
+    background:var(--paper);
+    border-radius:var(--radius);
+    padding:26px;
+    box-shadow:0 10px 24px rgba(35,48,69,0.08);
+  }
+  .about-card .icon{font-size:2.1rem;}
+  .about-card h3{font-size:1.15rem; margin-top:10px;}
+  .about-card p{margin-top:8px; font-size:0.96rem; color:#4b5773;}
+
+  /* -------- BIQUINHO SECTION -------- */
+  .biquinho-section{
+    background:var(--sky-deep);
+    border-radius:28px;
+    margin:0 auto;
+    max-width:1080px;
+    padding:56px 40px;
+  }
+  @media (max-width:600px){ .biquinho-section{padding:40px 22px;} }
+  .biquinho-grid{
+    margin-top:36px;
+    display:grid;
+    grid-template-columns:repeat(2, 1fr);
+    gap:24px;
+  }
+  @media (max-width:700px){ .biquinho-grid{grid-template-columns:1fr;} }
+  .chick-card{
+    background:var(--paper);
+    border-radius:18px;
+    padding:22px;
+    text-align:center;
+    box-shadow:0 8px 20px rgba(35,48,69,0.1);
+  }
+  .chick-card svg{width:96px; height:96px;}
+  .chick-card h3{margin-top:10px; font-size:1.25rem; color:var(--coral);}
+  .chick-card p{margin-top:6px; font-size:0.92rem; color:#4b5773;}
+  .video-frame{
+    margin-top:28px;
+    border-radius:18px;
+    overflow:hidden;
+    border:6px solid var(--paper);
+    box-shadow:0 12px 28px rgba(35,48,69,0.15);
+  }
+  .video-frame video{display:block; width:100%; height:auto;}
+
+  /* -------- COMIC SECTION -------- */
+  .comic-grid{
+    margin-top:40px;
+    display:grid;
+    grid-template-columns:repeat(2, 1fr);
+    gap:28px;
+  }
+  @media (max-width:780px){ .comic-grid{grid-template-columns:1fr;} }
+  .comic-strip{
+    background:var(--paper);
+    border-radius:16px;
+    border:4px solid var(--ink);
+    padding:14px;
+    box-shadow:6px 6px 0 rgba(35,48,69,0.15);
+  }
+  .comic-strip svg{width:100%; height:auto; display:block; border-radius:8px;}
+  .comic-caption{
+    margin-top:10px;
+    font-family:'Baloo 2', sans-serif;
+    font-weight:600;
+    font-size:0.95rem;
+    text-align:center;
+    color:var(--ink);
+  }
+
+  /* -------- GALLERY -------- */
+  .gallery{
+    margin-top:40px;
+    display:grid;
+    grid-template-columns:repeat(2, 1fr);
+    gap:20px;
+  }
+  @media (max-width:700px){ .gallery{grid-template-columns:1fr;} }
+  .gallery figure{margin:0; border-radius:18px; overflow:hidden; box-shadow:0 10px 24px rgba(35,48,69,0.12);}
+  .gallery img{display:block; width:100%; height:100%; object-fit:cover;}
+
+  /* -------- LETTER / FOOTER -------- */
+  .letter{
+    margin:0 auto;
+    max-width:680px;
+    background:var(--paper);
+    border-radius:var(--radius);
+    padding:44px 40px;
+    box-shadow:0 14px 30px rgba(35,48,69,0.1);
+    position:relative;
+  }
+  @media (max-width:600px){ .letter{padding:30px 24px;} }
+  .letter::before{
+    content:'';
+    position:absolute; top:-14px; left:40px;
+    width:44px; height:44px;
+    background:var(--sun);
+    border-radius:50%;
+    box-shadow:0 6px 14px rgba(0,0,0,0.15);
+  }
+  .letter p{font-size:1.08rem; margin:0 0 16px;}
+  .letter p:last-child{margin-bottom:0;}
+  .signature{
+    margin-top:26px;
+    font-family:'Patrick Hand', cursive;
+    font-size:1.6rem;
+    color:var(--coral);
+  }
+  footer{padding:60px 0 90px; text-align:center;}
+  .foot-meta{
+    margin-top:30px;
+    font-family:'Baloo 2', sans-serif;
+    font-size:0.8rem;
+    color:#5b6785;
+    opacity:0.8;
+  }
+
+  @keyframes fadeUp{ from{opacity:0; transform:translateY(14px);} to{opacity:1; transform:translateY(0);} }
+  .reveal{animation:fadeUp .7s ease both;}
+  @media (prefers-reduced-motion: reduce){ .reveal{animation:none;} }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="eyebrow">Página especial</span>
+      <h1 class="title">Cecília
+        <small>seis anos, faixa de campeã no tatame e no coração</small>
+      </h1>
+      <p class="hero-lede">
+        Essa página é uma cartinha grande, feita de código, pro meu maior orgulho: minha filha.
+        Ela ama jiu jitsu, cuida dos pintinhos Biquinho e Biquinho Jr como se fossem dela de
+        verdade, e enche minha vida de cor mesmo nos dias mais cinzas.
+      </p>
+    </div>
+    <div class="hero-photo">
+      <img src="cecilia-01.jpg" alt="Cecília sorrindo, segurando os pintinhos de pelúcia, ao lado do papai">
+      <span class="belt-tag">time Cecília &amp; papai</span>
+    </div>
+  </div>
+</header>
+
+<section id="sobre">
+  <div class="wrap">
+    <span class="eyebrow reveal">Sobre ela</span>
+    <h2 class="reveal">6 anos, faixa em progresso, coração cheio</h2>
+    <p class="section-intro reveal">
+      No jiu jitsu, cada faixa marca um degrau de dedicação. Aqui em casa, cada dia com a
+      Cecília é um degrau assim — ela não para de crescer, aprender e me ensinar coisas também.
+    </p>
+
+    <div class="belt-track reveal" role="img" aria-label="Faixas de jiu jitsu: branca, amarela, laranja, verde">
+      <div class="belt-seg" style="background:var(--belt-white)"></div>
+      <div class="belt-seg" style="background:var(--belt-yellow)"></div>
+      <div class="belt-seg" style="background:var(--belt-orange)"></div>
+      <div class="belt-seg" style="background:var(--belt-green)"></div>
+    </div>
+    <div class="belt-labels reveal">
+      <span>branca</span><span>amarela</span><span>laranja</span><span>verde</span>
+    </div>
+
+    <div class="about-grid">
+      <div class="about-card reveal">
+        <div class="icon">🥋</div>
+        <h3>Guerreira do tatame</h3>
+        <p>Ela entra na roda de jiu jitsu com uma vontade que não cabe no tamanho dela. Cada queda é motivo pra levantar rindo.</p>
+      </div>
+      <div class="about-card reveal">
+        <div class="icon">🐣</div>
+        <h3>Mãe dos pintinhos</h3>
+        <p>Cuida do Biquinho e do Biquinho Jr como se fosse a maior responsabilidade do mundo — e pra ela, é mesmo.</p>
+      </div>
+      <div class="about-card reveal">
+        <div class="icon">💛</div>
+        <h3>A alegria da casa</h3>
+        <p>Todo lugar que ela passa fica mais bagunçado e mais feliz ao mesmo tempo. As duas coisas juntas, do jeito certo.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="biquinho">
+  <div class="wrap">
+    <div class="biquinho-section">
+      <span class="eyebrow reveal">A dupla inseparável</span>
+      <h2 class="reveal">Biquinho &amp; Biquinho Jr</h2>
+      <p class="section-intro reveal">
+        Dois pintinhos, uma menina de seis anos, e uma bagunça de amor todo fim de semana.
+        Assim é a nossa brincadeira preferida.
+      </p>
+
+      <div class="biquinho-grid">
+        <div class="chick-card reveal">
+          <svg viewBox="0 0 100 100" aria-hidden="true">
+            <ellipse cx="50" cy="62" rx="30" ry="26" fill="#FFD23F"/>
+            <circle cx="50" cy="34" r="20" fill="#FFDD5C"/>
+            <circle cx="43" cy="30" r="3.2" fill="#233045"/>
+            <circle cx="57" cy="30" r="3.2" fill="#233045"/>
+            <path d="M46 37 L54 37 L50 43 Z" fill="#FF8C3B"/>
+            <path d="M50 14 L44 22 L56 22 Z" fill="#FF8C3B"/>
+            <path d="M20 62 Q30 50 38 62" fill="none" stroke="#FF8C3B" stroke-width="3" stroke-linecap="round"/>
+            <path d="M80 62 Q70 50 62 62" fill="none" stroke="#FF8C3B" stroke-width="3" stroke-linecap="round"/>
+          </svg>
+          <h3>Biquinho</h3>
+          <p>O mais velho da dupla, sempre no colo da Cecília primeiro.</p>
+        </div>
+        <div class="chick-card reveal">
+          <svg viewBox="0 0 100 100" aria-hidden="true">
+            <ellipse cx="50" cy="66" rx="24" ry="20" fill="#FFD23F"/>
+            <circle cx="50" cy="42" r="16" fill="#FFDD5C"/>
+            <circle cx="44" cy="39" r="2.6" fill="#233045"/>
+            <circle cx="56" cy="39" r="2.6" fill="#233045"/>
+            <path d="M46 44 L54 44 L50 49 Z" fill="#FF8C3B"/>
+            <path d="M50 27 L45 34 L55 34 Z" fill="#FF8C3B"/>
+          </svg>
+          <h3>Biquinho Jr</h3>
+          <p>O caçula, sempre correndo atrás do irmão nas aventuras.</p>
+        </div>
+      </div>
+
+      <div class="video-frame reveal">
+        <video controls preload="metadata" poster="cecilia-02.jpg">
+          <source src="cecilia-video.mp4" type="video/mp4">
+          Seu navegador não suporta vídeo.
+        </video>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="tirinhas">
+  <div class="wrap">
+    <span class="eyebrow reveal">Quadrinhos</span>
+    <h2 class="reveal">As aventuras do Biquinho e da Cecília</h2>
+    <p class="section-intro reveal">
+      Pequenas tirinhas inventadas aqui em casa, sobre o pintinho mais corajoso do jiu jitsu.
+    </p>
+
+    <div class="comic-grid">
+
+      <div class="comic-strip reveal">
+        <svg viewBox="0 0 600 220" xmlns="http://www.w3.org/2000/svg">
+          <rect width="600" height="220" fill="#F7F7F2"/>
+          <line x1="200" y1="0" x2="200" y2="220" stroke="#233045" stroke-width="4"/>
+          <line x1="400" y1="0" x2="400" y2="220" stroke="#233045" stroke-width="4"/>
+          <!-- panel 1 -->
+          <circle cx="100" cy="150" r="26" fill="#FFD23F"/>
+          <circle cx="93" cy="145" r="2.4" fill="#233045"/>
+          <path d="M96 152 L104 152 L100 157 Z" fill="#FF8C3B"/>
+          <text x="100" y="70" font-family="Patrick Hand" font-size="16" text-anchor="middle" fill="#233045">Vem, Biquinho!</text>
+          <text x="100" y="200" font-family="Baloo 2" font-weight="700" font-size="13" text-anchor="middle" fill="#233045">Hora do treino</text>
+          <!-- panel 2 -->
+          <rect x="255" y="130" width="90" height="10" rx="5" fill="#FFD23F" stroke="#233045" stroke-width="2"/>
+          <circle cx="300" cy="115" r="22" fill="#FFDD5C" stroke="#233045" stroke-width="2"/>
+          <text x="300" y="70" font-family="Patrick Hand" font-size="16" text-anchor="middle" fill="#233045">Assim, ó!</text>
+          <text x="300" y="200" font-family="Baloo 2" font-weight="700" font-size="13" text-anchor="middle" fill="#233045">Ensinando a queda</text>
+          <!-- panel 3 -->
+          <circle cx="500" cy="150" r="26" fill="#FFD23F"/>
+          <circle cx="493" cy="145" r="2.4" fill="#233045"/>
+          <path d="M485 132 L470 118" stroke="#233045" stroke-width="2"/>
+          <path d="M515 132 L530 118" stroke="#233045" stroke-width="2"/>
+          <text x="500" y="70" font-family="Patrick Hand" font-size="16" text-anchor="middle" fill="#233045">Consegui!!</text>
+          <text x="500" y="200" font-family="Baloo 2" font-weight="700" font-size="13" text-anchor="middle" fill="#233045">Faixa branca orgulhosa</text>
+        </svg>
+        <p class="comic-caption">Episódio 1 — O primeiro treino do Biquinho</p>
+      </div>
+
+      <div class="comic-strip reveal">
+        <svg viewBox="0 0 600 220" xmlns="http://www.w3.org/2000/svg">
+          <rect width="600" height="220" fill="#F7F7F2"/>
+          <line x1="200" y1="0" x2="200" y2="220" stroke="#233045" stroke-width="4"/>
+          <line x1="400" y1="0" x2="400" y2="220" stroke="#233045" stroke-width="4"/>
+          <!-- panel 1: Biquinho Jr copying -->
+          <circle cx="100" cy="160" r="18" fill="#FFD23F"/>
+          <circle cx="95" cy="157" r="2" fill="#233045"/>
+          <text x="100" y="80" font-family="Patrick Hand" font-size="15" text-anchor="middle" fill="#233045">Deixa eu tentar!</text>
+          <text x="100" y="200" font-family="Baloo 2" font-weight="700" font-size="12" text-anchor="middle" fill="#233045">Biquinho Jr quer treinar</text>
+          <!-- panel 2: tumbling -->
+          <circle cx="300" cy="130" r="18" fill="#FFDD5C" transform="rotate(30 300 130)"/>
+          <text x="300" y="80" font-family="Patrick Hand" font-size="15" text-anchor="middle" fill="#233045">Opa!</text>
+          <text x="300" y="200" font-family="Baloo 2" font-weight="700" font-size="12" text-anchor="middle" fill="#233045">Rolou sem querer</text>
+          <!-- panel 3: cecilia laughing catches him -->
+          <circle cx="500" cy="150" r="18" fill="#FFD23F"/>
+          <path d="M480 170 Q500 190 520 170" fill="none" stroke="#FF6F61" stroke-width="4" stroke-linecap="round"/>
+          <text x="500" y="80" font-family="Patrick Hand" font-size="15" text-anchor="middle" fill="#233045">Peguei você!</text>
+          <text x="500" y="200" font-family="Baloo 2" font-weight="700" font-size="12" text-anchor="middle" fill="#233045">Cecília salva o dia</text>
+        </svg>
+        <p class="comic-caption">Episódio 2 — Biquinho Jr entra no tatame</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="galeria">
+  <div class="wrap">
+    <span class="eyebrow reveal">Registros</span>
+    <h2 class="reveal">Nossos momentos</h2>
+    <div class="gallery">
+      <figure class="reveal">
+        <img src="cecilia-01.jpg" alt="Cecília e o papai sorrindo, segurando os pintinhos">
+      </figure>
+      <figure class="reveal">
+        <img src="cecilia-02.jpg" alt="Cecília e o papai juntos com os pintinhos Biquinho e Biquinho Jr">
+      </figure>
+    </div>
+  </div>
+</section>
+
+<footer id="carta">
+  <div class="wrap">
+    <span class="eyebrow reveal">Pro meu maior orgulho</span>
+    <div class="letter reveal" style="margin-top:20px; text-align:left;">
+      <p>Cecília, filha, essa página é pequena perto do tanto que eu te amo.</p>
+      <p>Você entra na roda de jiu jitsu com uma coragem que me inspira todos os dias.
+         Cuida do Biquinho e do Biquinho Jr com um carinho enorme, do tamanho do seu coração.
+         E nos dias que a gente passa juntos — mesmo que seja só assistindo desenho e comendo
+         doce — pra mim são os melhores dias que existem.</p>
+      <p>Você não faz ideia do tanto que me ensina sobre ser feliz com as coisas simples.</p>
+      <p class="signature">Com todo o amor, papai.</p>
+    </div>
+    <p class="foot-meta">Feito com carinho pelo papai Phelipe · 2026</p>
+  </div>
+</footer>
+
+</body>
+</html>
